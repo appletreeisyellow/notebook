@@ -21,20 +21,23 @@ tmux ls
 By default, `ctrl b` is the prefix in tmux
 
 
-### Windows (tabs)
+## Windows (tabs)
 ```
 <prefix> c: create a new window
 <prefix> d: detach tmux
 <prefix> ,: rename the window
 <prefix> p: previous window
 <prefix> n: next window
+<prefix> 0: go to window 0
 ```
 
-### Panes (splits)
+## Panes (splits)
 ```
 <prefix> %: vertial split
 <prefix> ": horizontal split
 <prefix> x: kill current window
+<prefix> <left_key>: go to left pane
+<prefix> <right_right>: go to right pane
 ```
 
 ### Resizing panes
