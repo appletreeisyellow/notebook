@@ -27,12 +27,16 @@ o - open a line below the cursor and place you in Insert mode
    an optional count to repeat the motion
 
  motion:
-   w - beginning of a word forward
-   b - beginning of a word backward
-   e - end of a word
-   0 - beginning of a line
-   $ - end of a line
-   c - change (= delete + insert)
+   w  - beginning of a word forward
+   b  - beginning of a word backward
+   e  - end of a word
+   0  - beginning of a line
+   $  - end of a line
+   c  - change (= delete + insert)
+   H  - beginning of screen
+   L  - end of screen
+   gg - beginning of the file
+   G  - end of the file
 ```
 
 #### Select
