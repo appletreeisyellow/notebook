@@ -55,7 +55,8 @@ Directions:
 
 ### Others
 
-# To scroll in the pane
+__To scroll in the pane__
+
 ```
 ctrl + b
 [
