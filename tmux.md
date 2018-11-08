@@ -52,3 +52,14 @@ Directions:
 -L Left
 -R Right
 ```
+
+### Others
+
+# To scroll in the pane
+```
+ctrl + b
+[
+use arrow keys
+ctrl + c to exit
+
+```
