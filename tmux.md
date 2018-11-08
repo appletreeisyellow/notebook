@@ -62,5 +62,4 @@ ctrl + b
 [
 use arrow keys
 ctrl + c to exit
-
 ```
