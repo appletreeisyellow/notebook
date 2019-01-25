@@ -93,3 +93,10 @@ G      - move to the end of the file
 #G     - move to # line
 gg     - move to the first line
 ```
+
+### Useful commands
+
+```
+daw - delete the word under the cursor
+caw - delete the word under the cursor and put you in insert mode
+```
