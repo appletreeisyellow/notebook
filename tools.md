@@ -20,7 +20,7 @@ Other supported files types are `--css`, `--go`, `--js`, `--json`, `--sql`, `--y
 [Here](https://kapeli.com/cheat_sheets/Ack.docset/Contents/Resources/Documents/index) are all the file types
 
 
-## ncud
+## ncdu
 
 `ncdu` is a disk usage analyzer. __Easy__ to use and navigate.
 
