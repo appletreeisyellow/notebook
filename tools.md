@@ -43,4 +43,17 @@ ncdu
 docker rmi $(docker images | grep <regex-pattern> | tr -s ' ' | cut -d ' ' -f 4 | tail)
 ```
 
+## youtube-dl
+
+Download YouTube videos into `m4a`, `mp3`, `mp4` and so on
+
+Install:
+```
+brew install youtube-dl
+```
+
+Download `mp3`:
+```
+youtube-dl --extract-audio --audio-format mp3 <video URL>
+```
 
