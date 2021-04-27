@@ -50,6 +50,7 @@ Download YouTube videos into `m4a`, `mp3`, `mp4` and so on
 Install:
 ```
 brew install youtube-dl
+
 ```
 
 Download `mp3`:
@@ -57,3 +58,10 @@ Download `mp3`:
 youtube-dl --extract-audio --audio-format mp3 <video URL>
 ```
 
+## zip
+
+Compress a folder and set password for the zip file
+
+```
+zip -er <zip_file_name.zip> <original_folder_name>
+```
