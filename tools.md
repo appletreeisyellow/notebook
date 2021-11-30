@@ -43,6 +43,21 @@ ncdu
 docker rmi $(docker images | grep <regex-pattern> | tr -s ' ' | cut -d ' ' -f 4 | tail)
 ```
 
+## tree
+
+`tree` is a recursive directory listing command that produces a depth indented listing of files.
+
+Install:
+```
+brew install tree
+```
+
+Run:
+```
+tree      # to show the structure of the files in the current dir
+tree -L 1 # to limit the recursion
+```
+
 ## youtube-dl
 
 Download YouTube videos into `m4a`, `mp3`, `mp4` and so on
