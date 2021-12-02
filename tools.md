@@ -80,4 +80,3 @@ Compress a folder and set password for the zip file
 ```
 zip -er <zip_file_name.zip> <original_folder_name>
 ```
-
