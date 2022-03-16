@@ -71,7 +71,6 @@ Install:
 
 ```
 brew install youtube-dl
-
 ```
 
 Download `mp3`:
