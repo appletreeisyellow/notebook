@@ -102,3 +102,33 @@ Convert
 ```
 ffmpeg -i my-video.mov my-video.mp4
 ```
+
+## qpdf
+
+Tools for and transforming and inspecting PDF files
+
+Install:
+
+```
+brew install qpdf
+```
+
+QPDF supports 40-bit, 128-bit and 256-bit encryption and the key length must be specified. The examples below show 256-bit encryption.
+
+```
+qpdf --encrypt PASSWORD PASSWORD 256 -- input.pdf output.pdf
+```
+
+Use --modify=none restrictions to block users from modifying the file.
+
+```
+qpdf --encrypt PASSWORD PASSWORD 256 --modify=none -- input.pdf output.pdf
+```
+
+The format for the encryption option is:
+
+```
+--encrypt user-password owner-password key-length [ restrictions ] --
+```
+
+[qpdf doc](https://qpdf.readthedocs.io/en/stable/)
