@@ -132,3 +132,23 @@ The format for the encryption option is:
 ```
 
 [qpdf doc](https://qpdf.readthedocs.io/en/stable/)
+
+## Calibre
+
+Install:
+
+```
+brew install --cask calibre
+```
+
+Convert ePub file to PDF:
+
+```
+ebook-convert <file>.epub <file>.pdf
+```
+
+Try to open your PDF and see if readable. If the output is not appealing, then try:
+
+```
+ebook-convert myfile.epub myfile.pdf --enable-heuristics 
+```
