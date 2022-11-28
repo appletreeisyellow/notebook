@@ -1,0 +1,29 @@
+#!/bin/bash -e
+
+IMAGE="${IMAGE:-postgres}"
+IMAGE_TAG="${IMAGE_TAG:-latest}"
+
+PRIMARY_CONTAINER=postgres
+PRIMARY_PORT=5432
+
+case "$1" in
+  run)
+    if [ $(docker ps --quiet --filter="status=exited" --filter="name=$PRIMARY_CONTAINER") ]; then
+      docker start $PRIMARY_CONTAINER
+    elif [ ! $(docker ps --quiet --filter="status=running" --filter="name=$PRIMARY_CONTAINER")]; then
+      docker run --name $PRIMARY_CONTAINER \
+        --detach \
+        -e POSTGRES_PASSWORD=postgres \
+        -p $PRIMARY_PORT:5432 \
+        $IMAGE:$IMAGE_TAG
+    else
+      echo "$PRIMARY_CONTAINER running"
+    fi
+    ;;
+  destory)
+    docker rm -f $PRIMARY_CONTAINER
+    ;;
+  *)
+    exit 1
+    ;;
+esac
