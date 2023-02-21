@@ -113,6 +113,12 @@ Install:
 brew install qpdf
 ```
 
+Combine and merge multiple PDFs into one
+
+```
+qpdf --empty --pages *.pdf -- out.pdf
+```
+
 QPDF supports 40-bit, 128-bit and 256-bit encryption and the key length must be specified. The examples below show 256-bit encryption.
 
 ```
