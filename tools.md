@@ -156,5 +156,21 @@ ebook-convert <file>.epub <file>.pdf
 Try to open your PDF and see if readable. If the output is not appealing, then try:
 
 ```
-ebook-convert myfile.epub myfile.pdf --enable-heuristics 
+ebook-convert myfile.epub myfile.pdf --enable-heuristics
+```
+
+## imessage-exporter
+
+Install (recommended):
+
+```
+cargo install imessage-exporter
+```
+
+Other ways of [installation](https://github.com/ReagentX/imessage-exporter/blob/develop/imessage-exporter/README.md)
+
+Example:
+
+```
+imessage-exporter -f html -o ./imessage-export-2022 -s 2022-01-01 -e 2023-01-01 -a MacOS
 ```
