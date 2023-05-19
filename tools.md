@@ -161,6 +161,8 @@ ebook-convert myfile.epub myfile.pdf --enable-heuristics
 
 ## imessage-exporter
 
+[imessage-exporter](https://github.com/ReagentX/imessage-exporter) is a tool to export iMessage data
+
 Install (recommended):
 
 ```
