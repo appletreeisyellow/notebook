@@ -119,6 +119,12 @@ Combine and merge multiple PDFs into one
 qpdf --empty --pages *.pdf -- out.pdf
 ```
 
+Select certain pages from each file and merge into one. e.g. the following command takes all the pages from `1.pdf`, all the pages from `2.pdf`, and page 1 and 2 from `3.pdf` and write the result to `out.pdf`
+
+```
+qpdf --empty --pages 1.pdf 2.pdf 3.pdf 1-2 -- out.pdf
+```
+
 QPDF supports 40-bit, 128-bit and 256-bit encryption and the key length must be specified. The examples below show 256-bit encryption.
 
 ```
