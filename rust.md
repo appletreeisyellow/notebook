@@ -4,6 +4,9 @@ This file contains some examples of Rust code.
 
 ## Enum
 
+- The following example defines an enum, and converts enum variants into str names and parses strings into enum variants
+- To iterate over the variants of an enum, use [`strum` crate](https://docs.rs/strum_macros/0.25.2/strum_macros/derive.EnumIter.html)
+
 ```rs
 use core::str::FromStr;
 
