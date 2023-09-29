@@ -4,4 +4,60 @@ This file contains some examples of Rust code.
 
 ## Enum
 
-https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&code=use+core%3A%3Astr%3A%3AFromStr%3B%0A%0A%23%5Bderive%28Debug%2C+PartialEq%2C+Eq%29%5D%0Aenum+Fruit+%7B%0A++++Apple+%3D+0%2C%0A++++Banana+%3D+1%2C%0A++++Cherry+%3D+2%2C%0A++++DragonFruit+%3D+3%2C%0A%7D%0A%0Aimpl+Fruit+%7B%0A++++%2F%2F+String+value+of+the+enum+field+names%0A++++pub+fn+as_str_name%28%26self%29+-%3E+%26%27static+str+%7B%0A++++++++match+self+%7B%0A++++++++++++Self%3A%3AApple+%3D%3E+%22apple%22%2C%0A++++++++++++Self%3A%3ABanana+%3D%3E+%22banana%22%2C%0A++++++++++++Self%3A%3ACherry+%3D%3E+%22cherry%22%2C%0A++++++++++++Self%3A%3ADragonFruit+%3D%3E+%22dragon+fruit%22%2C%0A++++++++%7D%0A++++%7D%0A%7D%0A%0Aimpl+FromStr+for+Fruit+%7B%0A++++type+Err+%3D+String%3B%0A%0A++++%2F%2F+Creates+an+enum+from+field+names%0A++++fn+from_str%28fruit%3A+%26str%29+-%3E+Result%3CSelf%2C+Self%3A%3AErr%3E+%7B%0A++++++++match+fruit+%7B%0A++++++++++++%22apple%22+%3D%3E+Ok%28Self%3A%3AApple%29%2C%0A++++++++++++%22banana%22+%3D%3E+Ok%28Self%3A%3ABanana%29%2C%0A++++++++++++%22cherry%22+%3D%3E+Ok%28Self%3A%3ACherry%29%2C%0A++++++++++++%22dragon+fruit%22+%3D%3E+Ok%28Self%3A%3ADragonFruit%29%2C%0A++++++++++++_+%3D%3E+Err%28format%21%28%0A++++++++++++++++%22%7Bfruit%7D+is+not+in+the+list%21%22%0A++++++++++++%29%0A++++++++++++.to_string%28%29%29%2C%0A++++++++%7D%0A++++%7D%0A%7D%0A%0Afn+main%28%29+%7B%0A++++assert_eq%21%28Fruit%3A%3AApple.as_str_name%28%29%2C+%22apple%22%29%3B%0A++++assert_eq%21%28Fruit%3A%3ADragonFruit.as_str_name%28%29%2C+%22dragon+fruit%22%29%3B%0A++++%0A++++if+let+Ok%28cherry%29+%3D+%22ChErrY%22.to_string%28%29.to_lowercase%28%29.parse%3A%3A%3CFruit%3E%28%29+%7B%0A++++++++assert_eq%21%28cherry%2C+Fruit%3A%3ACherry%29%3B%0A++++%7D%0A++++if+let+Err%28error_msg%29+%3D+%22random+fruit%22.to_string%28%29.to_lowercase%28%29.parse%3A%3A%3CFruit%3E%28%29+%7B%0A++++++++assert_eq%21%28error_msg%2C+format%21%28%22random+fruit+is+not+in+the+list%21%22%29.to_string%28%29%29%3B%0A++++%7D%0A++++%0A++++println%21%28%22Success%21%22%29%3B%0A%7D
+```rs
+use core::str::FromStr;
+
+#[derive(Debug, PartialEq, Eq)]
+enum Fruit {
+    Apple = 0,
+    Banana = 1,
+    Cherry = 2,
+    DragonFruit = 3,
+}
+
+impl Fruit {
+    // String value of the enum field names
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            Self::Apple => "apple",
+            Self::Banana => "banana",
+            Self::Cherry => "cherry",
+            Self::DragonFruit => "dragon fruit",
+        }
+    }
+}
+
+impl FromStr for Fruit {
+    type Err = String;
+
+    // Creates an enum from field names
+    fn from_str(fruit: &str) -> Result<Self, Self::Err> {
+        match fruit {
+            "apple" => Ok(Self::Apple),
+            "banana" => Ok(Self::Banana),
+            "cherry" => Ok(Self::Cherry),
+            "dragon fruit" => Ok(Self::DragonFruit),
+            _ => Err(format!(
+                "{fruit} is not in the list!"
+            )
+            .to_string()),
+        }
+    }
+}
+
+fn main() {
+    assert_eq!(Fruit::Apple.as_str_name(), "apple");
+    assert_eq!(Fruit::DragonFruit.as_str_name(), "dragon fruit");
+
+    if let Ok(cherry) = "ChErrY".to_string().to_lowercase().parse::<Fruit>() {
+        assert_eq!(cherry, Fruit::Cherry);
+    }
+    if let Err(error_msg) = "random fruit".to_string().to_lowercase().parse::<Fruit>() {
+        assert_eq!(error_msg, format!("random fruit is not in the list!").to_string());
+    }
+
+    println!("Success!");
+}
+```
+
+[Demo](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=ac45c4a807a0a9226a81be5c1c5a278c)
