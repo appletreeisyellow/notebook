@@ -64,3 +64,43 @@ fn main() {
 ```
 
 [Demo](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=ac45c4a807a0a9226a81be5c1c5a278c)
+
+## Pattern Matching with `@`
+
+```rs
+struct SystemError {
+   code: u8,
+   msg: String,
+}
+
+struct Id(u8);
+
+enum Error {
+    System(SystemError),
+    NotFound(Id),
+}
+
+fn process_error(e: Error) {
+    match e {
+        x @ Error::NotFound(_) => {
+            // `x` is the outer error but only if the inner one is `NotFound`
+            let _y: Error = x;
+        }
+        Error::System(x @ SystemError{code: 42, ..}) => {
+            // `x` is system error but only for code 42
+            let _y: SystemError = x;
+        }
+        Error::System(SystemError{code: 10, msg}) => {
+            // extract message for system error w/ code 10
+            let _y: String = msg;
+        }
+        Error::System(SystemError{code: 11, msg: x}) => {
+            // similar to the one above but we rename `msg` to `x`
+            let _y: String = x;
+        }
+        _ => {}
+    }
+}
+```
+
+[Demo](https://play.rust-lang.org/?version=stable&mode=debug&edition=2021&gist=d4fb61e604aa5e4f6b153461a7d27c10)
